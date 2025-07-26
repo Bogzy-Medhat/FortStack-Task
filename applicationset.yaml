@@ -18,7 +18,7 @@ spec:
       project: default
       source:
         repoURL: 'https://github.com/Bogzy-Medhat/FortStack-Task'
-        targetRevision: k3s
+        targetRevision: argocd
         path: '{{path}}'
       destination:
         server: 'https://kubernetes.default.svc'
