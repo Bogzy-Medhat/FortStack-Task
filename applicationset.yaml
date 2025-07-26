@@ -17,7 +17,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: 'https://github.com/Ankit6098/Todo-List-nodejs.git'
+        repoURL: 'https://github.com/Bogzy-Medhat/FortStack-Task'
         targetRevision: k3s
         path: '{{path}}'
       destination:
