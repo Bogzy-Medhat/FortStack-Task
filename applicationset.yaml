@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: fortstack-apps
+  namespace: argocd
+spec:
+  # Define generators to automatically create applications
+  generators:
+  - git:
+      repoURL: https://github.com/Ankit6098/Todo-List-nodejs.git
+      revision: k3s
+      directories:
+      - path: k3s/apps/* 
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: default
+      source:
+        repoURL: 'https://github.com/Ankit6098/Todo-List-nodejs.git'
+        targetRevision: k3s
+        path: '{{path}}'
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: '{{path.basename}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=true

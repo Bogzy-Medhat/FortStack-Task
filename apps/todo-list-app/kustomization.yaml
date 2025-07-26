@@ -1,0 +1,7 @@
+resources:
+  - deployment.yaml
+  - service.yaml
+
+commonLabels:
+  app.kubernetes.io/name: todo-list-app
+  app.kubernetes.io/instance: todo-list-app-instance
